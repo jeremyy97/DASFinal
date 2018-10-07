@@ -64,7 +64,6 @@ C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\bin\Newtonsoft.Js
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\bin\Antlr3.Runtime.pdb
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\obj\Debug\Interface.csprojAssemblyReference.cache
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\obj\Debug\Interface.csproj.CoreCompileInputs.cache
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\obj\Debug\Interface.csproj.CopyComplete
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\Restaurant\obj\Debug\Interface.dll

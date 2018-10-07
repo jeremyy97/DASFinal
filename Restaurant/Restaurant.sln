@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8A6C9F75-F1D0-4006-A30C-8BF5258A2DA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8A6C9F75-F1D0-4006-A30C-8BF5258A2DA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppInterface", "AppInterface\AppInterface.csproj", "{BD8F9734-27C4-4EEB-8FC2-583A5933A104}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{8C0CD4BA-DFBD-487A-ABE5-5361D19AD25E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BD8F9734-27C4-4EEB-8FC2-583A5933A104}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD8F9734-27C4-4EEB-8FC2-583A5933A104}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD8F9734-27C4-4EEB-8FC2-583A5933A104}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C0CD4BA-DFBD-487A-ABE5-5361D19AD25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C0CD4BA-DFBD-487A-ABE5-5361D19AD25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C0CD4BA-DFBD-487A-ABE5-5361D19AD25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C0CD4BA-DFBD-487A-ABE5-5361D19AD25E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

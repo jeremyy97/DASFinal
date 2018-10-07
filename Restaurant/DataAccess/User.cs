@@ -6,11 +6,11 @@ namespace DataAccess
 {
     public class User
     {
-        string Username { set; get; }
-        string Password { set; get;  }
-        string Name { set; get; }
-        string LastName { set; get; }
-        int ID { set; get; }
-        string type { set; get; }
+        public string Username { set; get; }
+        public string Password { set; get;  }
+        public string Name { set; get; }
+        public string LastName { set; get; }
+        public int ID { set; get; }
+        public string Type { set; get; }
     }
 }

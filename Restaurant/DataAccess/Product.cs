@@ -6,9 +6,11 @@ namespace DataAccess
 {
     public class Product
     {
-        int ID { set; get; }
-        string Name { set; get; }
-        string Description { set; get; }
+        public int ID { set; get; }
+        public string Name { set; get; }
+        public string Description { set; get; }
+        public decimal Cost { get; set; }
+        public int Calories { get; set; }
 
     }
 }

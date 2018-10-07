@@ -1,4 +1,0 @@
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Interface\bin\Interface.dll
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Interface\bin\Interface.pdb
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Interface\obj\Debug\Interface.dll
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Interface\obj\Debug\Interface.pdb

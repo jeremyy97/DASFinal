@@ -1,4 +1,0 @@
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Restaurante\bin\Debug\Restaurant.exe
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Restaurante\bin\Debug\Restaurant.pdb
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Restaurante\obj\x86\Debug\Restaurant.exe
-C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\Restaurante\obj\x86\Debug\Restaurant.pdb

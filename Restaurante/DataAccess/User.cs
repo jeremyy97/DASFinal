@@ -7,7 +7,7 @@ namespace DataAccess
 {
     public class User
     {
-        string User { set; get; }
+        string Username { set; get; }
         string Password { set; get; }
         string Type { set; get; }
         string Name { set; get; }

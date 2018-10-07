@@ -1,0 +1,4 @@
+C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\casa\Documents\GitHub\DASFinal\Restaurante\DataAccess\obj\Debug\DataAccess.pdb

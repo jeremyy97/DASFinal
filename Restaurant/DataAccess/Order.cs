@@ -9,7 +9,7 @@ namespace DataAccess
         private static int counter = 0;
         public int ID { set; get; }
         public string Table { set; get; }
-        public List<Product> products = new List<Product>();
+        public List<Product> Products = new List<Product>();
         public decimal Price { set; get; }
         public int Size { get; set; }
         public Boolean Active { get; set; }
@@ -18,7 +18,7 @@ namespace DataAccess
         {
             ID = counter++;
             this.Table = Table;
-            products = new List<Product>();
+            Products = new List<Product>();
             Price = 0;
             Size = 0;
             Active = true;

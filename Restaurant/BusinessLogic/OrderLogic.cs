@@ -48,16 +48,14 @@ namespace BusinessLogic
 
         public static string PrintOrder(Order order)
         {
-            return "Orden #" + order.ID + "\nProductos: \n" + PrintProducts(order.products) + "\nMonto Orden: " + order.Price;
+            return "Orden #" + order.ID + "\nProductos: \n" + PrintProducts(order.Products) + "\nMonto Orden: " + order.Price;
         }
 
         public static void CloseOrder(Order order)
         {
-            order.Size = OrderSize(order.products);
-            order.Price = OrderPrice(order.products);
+            order.Size = OrderSize(order.Products);
+            order.Price = OrderPrice(order.Products);
             order.Active = false;
         }
-
-
     }
 }

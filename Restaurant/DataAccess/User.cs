@@ -12,5 +12,16 @@ namespace DataAccess
         public string LastName { set; get; }
         public int ID { set; get; }
         public string Type { set; get; }
+
+        public User(string username, string password, string name, string lastName, int id, string type)
+        {
+            Username = username;
+            Password = password;
+            Name = name;
+            LastName = lastName;
+            ID = id;
+            Type = type;
+        }
     }
 }
+    

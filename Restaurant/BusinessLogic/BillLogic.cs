@@ -10,7 +10,7 @@ namespace BusinessLogic
 
         public static void AddOrder(Bill bill, Order order)
         {
-            bill.orders.Add(order);
+            bill.Orders.Add(order);
         }
 
         public static decimal BillPrice(List<Order> orders)

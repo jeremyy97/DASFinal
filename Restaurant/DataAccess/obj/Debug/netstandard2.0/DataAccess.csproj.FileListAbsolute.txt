@@ -6,3 +6,4 @@ C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\DataAccess\obj\Debug\netstan
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
 C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb
+C:\Users\Jerem\Documents\GitHub\DASFinal\Restaurant\DataAccess\obj\Debug\netstandard2.0\DataAccess.csprojAssemblyReference.cache

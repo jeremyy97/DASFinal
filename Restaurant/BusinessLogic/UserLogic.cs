@@ -5,8 +5,12 @@ using System.Text;
 
 namespace BusinessLogic
 {
-    class UserLogic
+    public class UserLogic
     {
+        public UserLogic()
+        {
+
+        }
         List<User> users = new List<User>();
         public string createUser(string username, string password, string name, string lastName, int id, string type)
         {
@@ -14,17 +18,17 @@ namespace BusinessLogic
             string mensaje = "";
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(type))
             {
-                mensaje = "Por favor verifique que se hayan ingresado todos los datos requeridos.";
+                mensaje = "Por favor verifique que se haya ingresado todos los datos requeridos.";
             }
             else
             {
-                if(SearchUserByUsername(username).Username == username)
+                if(SearchUserByUsername(username) != null)
                 {
                     mensaje = "El nombre de usuario ingresado ya existe dentro del sistema.";
                 }
                 else
                 {
-                    user = new User(username, password, name, lastName, id, type);
+                    user = new User() {Username = username, Password = password, Name = name, LastName= lastName, ID = id, Type= type };
                     users.Add(user);
                     mensaje = "Usuario agregado correctamente. \nNombre: " + name + " " + lastName + "\nRol asignado: " + type;
                 }
@@ -34,16 +38,28 @@ namespace BusinessLogic
 
         public User SearchUserByUsername(string username)
         {
-            User user;
+            User user = null;
             foreach (User i in users)
             {
                 if(i.Username == username)
                 {
                     user = i;
-                    return user;
                 }
             }
-            return null;
+            return user;
+        }
+
+        public User SearchUserById(int id)
+        {
+            User user = null;
+            foreach (User i in users)
+            {
+                if (i.ID == id)
+                {
+                    user = i;
+                }
+            }
+            return user;
         }
 
         public string DeleteUser(string username, string loggedUsername)

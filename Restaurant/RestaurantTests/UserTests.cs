@@ -1,6 +1,5 @@
 ﻿using System;
 using BusinessLogic;
-using DataAccess;
 using Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -13,11 +12,11 @@ namespace RestaurantTests
         public void AUserIsCreated()
         {
             //Arrange
-            UserLogic logic  = new UserLogic();
+            UserLogic logic = new UserLogic();
             User lastUser;
 
             //Act
-            string mensaje = logic.createUser("user1","123","Usuario","Uno", 1,"waiter");
+            string mensaje = logic.createUser("user1", "123", "Usuario", "Uno", 1, "waiter");
             lastUser = logic.SearchUserByUsername("user1");
 
             //Assert

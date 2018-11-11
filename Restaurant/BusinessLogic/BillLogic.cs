@@ -1,7 +1,8 @@
 ﻿using System;
-using DataAccess;
+
 using System.Collections.Generic;
 using System.Text;
+using Entities;
 
 namespace BusinessLogic
 {

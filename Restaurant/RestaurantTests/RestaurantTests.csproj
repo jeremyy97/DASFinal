@@ -60,9 +60,9 @@
       <Project>{8c0cd4ba-dfbd-487a-abe5-5361d19ad25e}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+    <ProjectReference Include="..\DataAccess\Entities.csproj">
       <Project>{8a6c9f75-f1d0-4006-a30c-8bf5258a2da9}</Project>
-      <Name>DataAccess</Name>
+      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

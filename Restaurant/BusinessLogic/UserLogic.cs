@@ -90,5 +90,16 @@ namespace BusinessLogic
         {
             return users;
         }
+
+        public string GetUsersListString()
+        {
+            StringBuilder final = new StringBuilder();
+            foreach (var user in users)
+            {
+                final.Append(user);
+                final.Append("\n");
+            }
+            return final.ToString();
+        }
     }
 }

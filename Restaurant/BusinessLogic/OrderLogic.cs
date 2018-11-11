@@ -7,12 +7,12 @@ namespace BusinessLogic
     public static class OrderLogic
     {
 
-        public static int OrderSize (List<Product> products)
+        public static int OrderSize(List<Product> products)
         {
             return products.Count;
         }
 
-        public static decimal OrderPrice (List<Product> products)
+        public static decimal OrderCost(List<Product> products)
         {
             if (products.Count != 0)
             {
@@ -33,10 +33,10 @@ namespace BusinessLogic
         {
             if (products.Count != 0)
             {
-                string print="";
+                string print = "";
                 foreach (var product in products)
                 {
-                    print += ProductLogic.PrintResume(product)+"\n";
+                    print += product + "\n";
                 }
                 return print;
             }
@@ -48,14 +48,14 @@ namespace BusinessLogic
 
         public static string PrintOrder(Order order)
         {
-            return "Orden #" + order.ID + "\nProductos: \n" + PrintProducts(order.Products) + "\nMonto Orden: " + order.Price;
+            return "Orden #" + order.ID + "\nProductos: \n" + PrintProducts(order.Products) + "\nMonto Orden: " + OrderCost(order.Products);
         }
 
         public static void CloseOrder(Order order)
         {
             order.Size = OrderSize(order.Products);
-            order.Price = OrderPrice(order.Products);
-            order.Active = false;
+            order.Cost = OrderCost(order.Products);
+            order.Paid = false;
         }
     }
 }

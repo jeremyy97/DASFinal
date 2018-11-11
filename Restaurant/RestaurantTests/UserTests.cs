@@ -1,6 +1,7 @@
 ﻿using System;
 using BusinessLogic;
 using DataAccess;
+using Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RestaurantTests

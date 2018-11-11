@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8A6C9F75-F1D0-4006-A30C-8BF5258A2DA9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "DataAccess\Entities.csproj", "{8A6C9F75-F1D0-4006-A30C-8BF5258A2DA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppInterface", "AppInterface\AppInterface.csproj", "{BD8F9734-27C4-4EEB-8FC2-583A5933A104}"
 EndProject

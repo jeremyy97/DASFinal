@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +10,11 @@ namespace DataAccess
         public string Name { set; get; }
         public string Description { set; get; }
         public decimal Cost { get; set; }
-        public int Calories { get; set; }
+
+        public override string ToString()
+        {
+            return Name + ":" + "\nDescripción: " + Description + "\nCosto: ₡" + Cost + "\n\n";
+        }
 
     }
 }

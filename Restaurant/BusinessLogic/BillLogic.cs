@@ -6,32 +6,25 @@ using Entities;
 
 namespace BusinessLogic
 {
-    public static class BillLogic
+    public class BillLogic
     {
+        List<Bill> Bills = new List<Bill>();
 
-        public static void AddOrder(Bill bill, Order order)
+        public string AddOrder(int id, Order order)
         {
-            bill.Orders.Add(order);
-        }
-
-        public static decimal BillPrice(List<Order> orders)
-        {
-            decimal price = 0;
-            if (orders.Count != 0)
+            foreach (var bill in Bills)
             {
-                foreach (var order in orders)
+                if (bill.ID == id)
                 {
-                    price += order.Price;
+                    bill.Orders.Add(order);
+                    return "La orden fue agregada a la factura";
                 }
-                return price;
             }
-            else
-            {
-                return 0;
-            }
+            return "No se encontro factura con este ID";
         }
 
-   
+
+
 
     }
 }

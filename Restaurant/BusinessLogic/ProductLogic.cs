@@ -17,7 +17,6 @@ namespace BusinessLogic
             Products.Add(new Product() { ID = 4, Name = "New York Steak", Description = "Nuestro corte de carne magra acompañado de verduras y ensalada", Cost = 5000 });
         }
 
-
         public string AddProduct(int id, string name, string description, decimal cost)
         {
             string message = "";
@@ -39,7 +38,6 @@ namespace BusinessLogic
             }
             return message;
         }
-
 
         public Product SearchByID(int id)
         {
@@ -68,7 +66,6 @@ namespace BusinessLogic
             }
             return message;
         }
-
 
         public List<Product> GetProducts()
         {

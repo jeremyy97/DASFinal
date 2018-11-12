@@ -11,17 +11,17 @@ namespace Entities
         public int Table { set; get; }
         public List<Product> Products = new List<Product>();
         public decimal Cost { set; get; }
-        public int Size { get; set; }
         public Boolean Paid { get; set; }
+        public Boolean Completed { get; set; }
 
         public Order(int Table)
         {
-            ID = counter++;
+            ID = ++counter;
             this.Table = Table;
             Products = new List<Product>();
             Cost = 0;
-            Size = 0;
-            Paid = true;
+            Paid = false;
+            Completed = false;
         }
 
 

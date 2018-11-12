@@ -52,7 +52,6 @@ namespace BusinessLogic
             return null;
         }
 
-
         public Table SearchByPeople(int people)
         {
             foreach (var table in Tables)

@@ -2,18 +2,22 @@
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace BusinessLogic
 {
-    public static class OrderLogic
+    public class OrderLogic
     {
+        public List<Order> Orders = new List<Order>();
 
-        public static int OrderSize(List<Product> products)
+        public int AddOrder(int table)
         {
-            return products.Count;
+            Order order = new Order(table);
+            Orders.Add(order);
+            return order.ID;
         }
 
-        public static decimal OrderCost(List<Product> products)
+        public decimal OrderCost(List<Product> products)
         {
             if (products.Count != 0)
             {
@@ -30,7 +34,19 @@ namespace BusinessLogic
             }
         }
 
-        public static string PrintProducts(List<Product> products)
+        public Order SearchOrderById(int id)
+        {
+            foreach (var order in Orders)
+            {
+                if (order.ID == id)
+                {
+                    return order;
+                }
+            }
+            return null;
+        }
+
+        public string GetProductsString(List<Product> products)
         {
             if (products.Count != 0)
             {
@@ -47,14 +63,50 @@ namespace BusinessLogic
             }
         }
 
-        public static string PrintOrder(Order order)
+        public string GetOrderString(Order order)
         {
-            return "Orden #" + order.ID + "\nProductos: \n" + PrintProducts(order.Products) + "\nMonto Orden: " + OrderCost(order.Products);
+            return "Orden #" + order.ID + "\nProductos: \n" + GetProductsString(order.Products) + "\nMonto Orden: " + OrderCost(order.Products);
         }
 
-        public static void CloseOrder(Order order)
+        public string GetOrdersSameTableToPayString(int table)
         {
-            order.Size = OrderSize(order.Products);
+            StringBuilder final = new StringBuilder();
+            foreach (var order in Orders)
+            {
+                if (order.Table == table && !order.Paid && order.Completed)
+                {
+                    final.Append(GetOrderString(order));
+                    final.Append("\n");
+                }
+            }
+            return final.ToString();
+        }
+
+        public string GetAllOrdersString()
+        {
+            StringBuilder final = new StringBuilder();
+            foreach (var order in Orders)
+            {
+                final.Append(GetOrderString(order));
+                final.Append("\n ---------------------------------------------");
+            }
+            return final.ToString();
+        }
+
+        public Order GetOrder(int id)
+        {
+            foreach (var order in Orders)
+            {
+                if (order.ID == id)
+                {
+                    return order;
+                }
+            }
+            return null;
+        }
+
+        public void CloseOrder(Order order)
+        {
             order.Cost = OrderCost(order.Products);
             order.Paid = false;
         }

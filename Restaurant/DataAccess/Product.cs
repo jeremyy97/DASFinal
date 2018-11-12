@@ -13,7 +13,7 @@ namespace Entities
 
         public override string ToString()
         {
-            return Name + ":" + "\nDescripción: " + Description + "\nCosto: ₡" + Cost + "\n\n";
+            return "ID #" + ID + " " + Name + ":" + "\nDescripción: " + Description + "\nCosto: ₡" + Cost + "\n\n";
         }
 
     }

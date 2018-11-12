@@ -12,7 +12,7 @@ namespace BusinessLogic
         {
 
         }
-        List<User> users = new List<User>();
+        static List<User> users = new List<User>();
         public string createUser(string username, string password, string name, string lastName, int id, string type)
         {
             User user;
@@ -85,6 +85,18 @@ namespace BusinessLogic
                 mensaje = "El usuario que se encuentra eliminar no se encuentra en el sistema";
             }
             return mensaje;
+        }
+
+        public Boolean Login(string username, string password)
+        {
+            foreach (User user in users)
+            {
+                if(user.Username == username && user.Password == password)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public List<User> GetUsersList()

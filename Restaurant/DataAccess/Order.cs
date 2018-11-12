@@ -23,8 +23,6 @@ namespace Entities
             Paid = false;
             Completed = false;
         }
-
-
-
+        
     }
 }

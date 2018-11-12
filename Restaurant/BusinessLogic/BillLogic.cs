@@ -8,13 +8,20 @@ namespace BusinessLogic
 {
     public class BillLogic
     {
-        List<Bill> Bills = new List<Bill>();
+        public static List<Bill> Bills = new List<Bill>();
 
-        public string AddOrder(int id, Order order)
+        public int CreateBill(string clientName)
+        {
+            Bill bill = new Bill(clientName);
+            int BillId = bill.ID;
+            Bills.Add(bill);
+            return BillId;
+        }
+        public string AddOrder(int billId, Order order)
         {
             foreach (var bill in Bills)
             {
-                if (bill.ID == id)
+                if (bill.ID == billId)
                 {
                     bill.Orders.Add(order);
                     return "La orden fue agregada a la factura";

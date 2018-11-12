@@ -3,20 +3,35 @@ using Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BusinessLogic;
 
 namespace BusinessLogic
 {
     public class OrderLogic
     {
-        public List<Order> Orders = new List<Order>();
+        public static List<Order> Orders = new List<Order>();
 
-        public int AddOrder(int table)
+        public int CreateOrder(int table)
         {
             Order order = new Order(table);
             Orders.Add(order);
             return order.ID;
         }
 
+        public string AddProductToAnOrder(int orderId, int productoId)
+        {
+            foreach (var order in Orders)
+            {
+                if (order.ID == orderId)
+                {
+                    ProductLogic products = new ProductLogic();
+                    Product product = products.SearchByID(productoId);
+                    order.Products.Add(product);
+                    return "Producto agregado a la orden " + orderId;
+                }
+            }
+            return "ID de orden incorrecta";
+        }
         public decimal OrderCost(List<Product> products)
         {
             if (products.Count != 0)
@@ -109,6 +124,17 @@ namespace BusinessLogic
         {
             order.Cost = OrderCost(order.Products);
             order.Paid = false;
+        }
+
+        public void PayOrder(Order order)
+        {
+            foreach(var i in Orders)
+            {
+                if (i == order)
+                {
+                    i.Paid = true;
+                }
+            }
         }
     }
 }

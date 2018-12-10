@@ -20,7 +20,7 @@ namespace BusinessLogic
 
         public string AddProductToAnOrder(int orderId, Product product)
         {
-            foreach (var order in orderLo.Orders)
+            foreach (var order in OrderLogic.Orders)
             {
                 if (order.ID == orderId)
                 {

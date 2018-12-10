@@ -12,37 +12,37 @@ namespace BusinessLogic
         {
 
         }
-        static List<User> users = new List<User>();
-        public string createUser(string username, string password, string name, string lastName, int id, string type)
+        private static List<User> Users = new List<User>();
+
+
+        public User createUser(string username, string password, string name, string lastName, string type)
         {
             User user;
-            string mensaje = "";
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(type))
             {
-                mensaje = "Por favor verifique que se haya ingresado todos los datos requeridos.";
+                return null;
             }
             else
             {
-                if(SearchUserByUsername(username) != null)
+                if (SearchUserByUsername(username) != null)
                 {
-                    mensaje = "El nombre de usuario ingresado ya existe dentro del sistema.";
+                    return null;
                 }
                 else
                 {
-                    user = new User() {Username = username, Password = password, Name = name, LastName= lastName, ID = id, Type= type };
-                    users.Add(user);
-                    mensaje = "Usuario agregado correctamente. \nNombre: " + name + " " + lastName + "\nRol asignado: " + type;
+                    user = new User() { Username = username, Password = password, Name = name, LastName = lastName, Type = type, Avalability = 1 };
+                    Users.Add(user);
+                    return user;
                 }
             }
-            return mensaje;
         }
 
         public User SearchUserByUsername(string username)
         {
             User user = null;
-            foreach (User i in users)
+            foreach (User i in Users)
             {
-                if(i.Username == username)
+                if (i.Username == username)
                 {
                     user = i;
                 }
@@ -50,69 +50,82 @@ namespace BusinessLogic
             return user;
         }
 
-        public User SearchUserById(int id)
-        {
-            User user = null;
-            foreach (User i in users)
-            {
-                if (i.ID == id)
-                {
-                    user = i;
-                }
-            }
-            return user;
-        }
 
-        public string DeleteUser(string username, string loggedUsername)
+        public User DisableUser(string username, string loggedUsername)
         {
-            string mensaje = "";
             User user;
-            if(SearchUserByUsername(username).Username == username)
+            if (SearchUserByUsername(username).Username == username)
             {
                 if (SearchUserByUsername(username).Username == loggedUsername)
                 {
                     user = SearchUserByUsername(username);
-                    users.Remove(user);
-                    mensaje = "Usuario " + user.Username + " eliminado correctamente";
+                    Users.Remove(user);
+                    user.Avalability = 0;
+                    Users.Add(user);
+                    return user;
                 }
-                else
-                {
-                    mensaje = "No puede eliminar su mismo usuario";
-                }                
             }
-            else
+            return null;
+        }
+
+        public User EnableUser(string username, string loggedUsername)
+        {
+            User user;
+            if (SearchUserByUsername(username).Username == username)
             {
-                mensaje = "El usuario que se encuentra eliminar no se encuentra en el sistema";
+                if (SearchUserByUsername(username).Username == loggedUsername)
+                {
+                    user = SearchUserByUsername(username);
+                    Users.Remove(user);
+                    user.Avalability = 1;
+                    Users.Add(user);
+                    return user;
+                }
             }
-            return mensaje;
+            return null;
+        }
+
+        public List<User> GetUsersList()
+        {
+            return Users;
+        }
+
+        public List<User> GetEnabledUsers()
+        {
+            List<User> EnabledUsers = new List<User>();
+            foreach (var i in Users)
+            {
+                if (i.Avalability == 1)
+                {
+                    EnabledUsers.Add(i);
+                }
+            }
+            return EnabledUsers;
+        }
+
+        public List<User> GetDisabledUsers()
+        {
+            List<User> DisabledUsers = new List<User>();
+            foreach (var i in Users)
+            {
+                if (i.Avalability == 0)
+                {
+                    DisabledUsers.Add(i);
+                }
+            }
+            return DisabledUsers;
         }
 
         public Boolean Login(string username, string password)
         {
-            foreach (User user in users)
+            foreach (User user in Users)
             {
-                if(user.Username == username && user.Password == password)
+                if (user.Username == username && user.Password == password)
                 {
                     return true;
                 }
             }
             return false;
-        }
-
-        public List<User> GetUsersList()
-        {
-            return users;
-        }
-
-        public string GetUsersListString()
-        {
-            StringBuilder final = new StringBuilder();
-            foreach (var user in users)
-            {
-                final.Append(user);
-                final.Append("\n");
-            }
-            return final.ToString();
         }
     }
 }

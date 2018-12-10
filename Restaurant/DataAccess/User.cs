@@ -10,12 +10,12 @@ namespace Entities
         public string Password { set; get; }
         public string Name { set; get; }
         public string LastName { set; get; }
-        public int ID { set; get; }
         public string Type { set; get; }
+        public int Avalability { set; get; }
 
         public override string ToString()
         {
-            return "ID: " + ID + " Username: " + Username + " Name: " + Name + " " + LastName + " Type: " + Type;
+            return "Username: " + Username + " Name: " + Name + " " + LastName + " Type: " + Type;
         }
     }
 }

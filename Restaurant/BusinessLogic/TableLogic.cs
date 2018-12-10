@@ -18,26 +18,15 @@ namespace BusinessLogic
             Tables.Add(new Table() { ID = 5, People = 3, Available = true });
         }
 
-        public string AddTable(int id, int people)
+        public Table AddTable(int id, int people)
         {
-            string message = "";
-            if (people <= 0)
+            if (people > 0 && SearchById(id) == null)
             {
-                message = "Datos inválidos";
+                Table table = new Table { ID = id, People = people, Available = true };
+                Tables.Add(table);
+                return table;
             }
-            else
-            {
-                if (SearchById(id) != null)
-                {
-                    message = "Ya existe una mesa con este ID";
-                }
-                else
-                {
-                    Tables.Add(new Table() { ID = id, People = people, Available = true });
-                    message = "Mesa agregada correctamente";
-                }
-            }
-            return message;
+            else return null;
         }
 
         public Table SearchById(int id)
@@ -64,7 +53,7 @@ namespace BusinessLogic
             return null;
         }
 
-        public string ChangeStatus(int id)
+        public Table PickTable(int id)
         {
             foreach (var table in Tables)
             {
@@ -73,16 +62,11 @@ namespace BusinessLogic
                     if (table.Available)
                     {
                         table.Available = false;
-                        return "La mesa " + id + " ha cambiado su estado a ocupada";
-                    }
-                    else
-                    {
-                        return "Error \n La mesa " + id + " se encuentra ocupada";
+                        return table;
                     }
                 }
             }
-
-            return "No existe mesa con este id";
+            return null;
         }
 
         public List<Table> GetAvailableTables()
@@ -103,15 +87,17 @@ namespace BusinessLogic
             return Tables;
         }
 
-        public string GetTablesString()
+        public List<Table> GetUnavailableTables()
         {
-            StringBuilder final = new StringBuilder();
+            List<Table> TablesU = new List<Table>();
             foreach (var table in Tables)
             {
-                final.Append(table);
-                final.Append("\n");
+                if (!table.Available)
+                {
+                    TablesU.Add(table);
+                }
             }
-            return final.ToString();
+            return TablesU;
         }
 
     }

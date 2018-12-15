@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9E111530-77A5-4384-AE8A-FD72D4B9CEA1}</ProjectGuid>
+    <ProjectGuid>{01BFCB29-802B-47F8-8323-616CFD4F26F0}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>ConsoleTestDelete</RootNamespace>
     <AssemblyName>ConsoleTestDelete</AssemblyName>
@@ -52,6 +52,10 @@
     <ProjectReference Include="..\DataAccess\Entities.csproj">
       <Project>{8A6C9F75-F1D0-4006-A30C-8BF5258A2DA9}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBAccess\DBAccess.csproj">
+      <Project>{5CBE13A9-8941-4B62-89F8-AB4FCE886664}</Project>
+      <Name>DBAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

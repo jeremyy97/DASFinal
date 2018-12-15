@@ -1,5 +1,5 @@
-﻿using Entities;
-using DBAccess;
+﻿using DBAccess;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,18 @@ namespace ConsoleTestDelete
     {
         static void Main(string[] args)
         {
-            User user = new User()
+            DBAccessConnection test = new DBAccessConnection();
+
+            List<User> users = test.GetUsers();
+
+            foreach (var item in users)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey();
+
+
+
 
         }
     }

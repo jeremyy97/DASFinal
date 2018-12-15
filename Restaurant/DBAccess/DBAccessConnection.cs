@@ -1,13 +1,15 @@
-﻿using Entities;
+﻿using Dapper;
+using Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DBAccess
 {
-    public class DBAccess
+    public class DBAccessConnection
     {
         static string connString = "Data Source=LAPTOP-BCKLLFPR;Initial Catalog=restaurantDB;Integrated Security=True;";
 
@@ -20,7 +22,5 @@ namespace DBAccess
             }
             return users;
         }
-
-
     }
 }

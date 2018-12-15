@@ -21,10 +21,11 @@ namespace BusinessLogic
             StringBuilder message = new StringBuilder();
             if (tableLo.SearchByPeople(people) != null) //si hay mesas disponibles
             {
-                Table table = tableLo.SearchByPeople(people);
+                /*Table table = tableLo.SearchByPeople(people);
                 message.Append(tableLo.ChangeStatus(table.ID));
                 int orderId = orderLo.AddOrder(table.ID);
                 message.Append("\nSu número de orden es: " + orderId + " pase adelante");
+                */
             }
             else
             {

@@ -1,4 +1,5 @@
 ﻿
+using DBAccess;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,10 @@ namespace BusinessLogic
     {
         public UserLogic()
         {
-
+            Users = DataAccess.GetUsers();
         }
         private static List<User> Users = new List<User>();
-
+        DBAccessConnection DataAccess = new DBAccessConnection();
 
         public User createUser(string username, string password, string name, string lastName, string type)
         {

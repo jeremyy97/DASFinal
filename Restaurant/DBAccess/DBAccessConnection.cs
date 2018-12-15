@@ -11,14 +11,14 @@ namespace DBAccess
 {
     public class DBAccessConnection
     {
-        static string connString = "Data Source=LAPTOP-BCKLLFPR;Initial Catalog=restaurantDB;Integrated Security=True;";
 
+        static string connString = "Data Source=LAPTOP-BCKLRFPR\\MSSQLSERVER01;Initial Catalog=restaurantDB;Integrated Security=True;";
         public List<User> GetUsers()
         {
             List<User> users;
-            using (SqlConnection conn = new SqlConnection(connString))
+            using (SqlConnection conn = new SqlConnection(connString))  
             {
-                users = conn.Query<User>("Select * FROM USER").ToList();
+                users = conn.Query<User>("select * from [restaurantDB].[dbo].[USER]").ToList();
             }
             return users;
         }

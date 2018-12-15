@@ -11,7 +11,7 @@ namespace Entities
         public string Name { set; get; }
         public string LastName { set; get; }
         public string Type { set; get; }
-        public int Avalability { set; get; }
+        public int Availability { set; get; }
 
         public override string ToString()
         {

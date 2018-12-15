@@ -8,7 +8,7 @@ namespace Entities
     {
         public int ID { get; set; }
         public int People { get; set; }
-        public Boolean Available { get; set; }
+        public int Available { get; set; }
 
         public override string ToString()
         {

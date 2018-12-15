@@ -11,18 +11,18 @@ namespace BusinessLogic
 
         public TableLogic()
         {
-            Tables.Add(new Table() { ID = 1, People = 4, Available = true });
-            Tables.Add(new Table() { ID = 2, People = 2, Available = true });
-            Tables.Add(new Table() { ID = 3, People = 10, Available = true });
-            Tables.Add(new Table() { ID = 4, People = 4, Available = true });
-            Tables.Add(new Table() { ID = 5, People = 3, Available = true });
+            Tables.Add(new Table() { ID = 1, People = 4, Available = 1 });
+            Tables.Add(new Table() { ID = 2, People = 2, Available = 1 });
+            Tables.Add(new Table() { ID = 3, People = 10, Available = 1 });
+            Tables.Add(new Table() { ID = 4, People = 4, Available = 1 });
+            Tables.Add(new Table() { ID = 5, People = 3, Available = 1 });
         }
 
         public Table AddTable(int id, int people)
         {
             if (people > 0 && SearchById(id) == null)
             {
-                Table table = new Table { ID = id, People = people, Available = true };
+                Table table = new Table { ID = id, People = people, Available = 1 };
                 Tables.Add(table);
                 return table;
             }
@@ -45,7 +45,7 @@ namespace BusinessLogic
         {
             foreach (var table in Tables)
             {
-                if (table.People == people && table.Available)
+                if (table.People == people && table.Available == 1)
                 {
                     return table;
                 }
@@ -59,9 +59,9 @@ namespace BusinessLogic
             {
                 if (table.ID == id)
                 {
-                    if (table.Available)
+                    if (table.Available==1)
                     {
-                        table.Available = false;
+                        table.Available = 0;
                         return table;
                     }
                 }
@@ -74,7 +74,7 @@ namespace BusinessLogic
             List<Table> TablesA = new List<Table>();
             foreach (var table in Tables)
             {
-                if (table.Available)
+                if (table.Available==1)
                 {
                     TablesA.Add(table);
                 }
@@ -92,7 +92,7 @@ namespace BusinessLogic
             List<Table> TablesU = new List<Table>();
             foreach (var table in Tables)
             {
-                if (!table.Available)
+                if (table.Available==0)
                 {
                     TablesU.Add(table);
                 }

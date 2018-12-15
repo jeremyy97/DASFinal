@@ -60,7 +60,7 @@ namespace BusinessLogic
                 {
                     user = SearchUserByUsername(username);
                     Users.Remove(user);
-                    user.Avalability = 0;
+                    user.Availability = 0;
                     Users.Add(user);
                     return user;
                 }
@@ -77,7 +77,7 @@ namespace BusinessLogic
                 {
                     user = SearchUserByUsername(username);
                     Users.Remove(user);
-                    user.Avalability = 1;
+                    user.Availability = 1;
                     Users.Add(user);
                     return user;
                 }
@@ -95,7 +95,7 @@ namespace BusinessLogic
             List<User> EnabledUsers = new List<User>();
             foreach (var i in Users)
             {
-                if (i.Avalability == 1)
+                if (i.Availability == 1)
                 {
                     EnabledUsers.Add(i);
                 }
@@ -108,7 +108,7 @@ namespace BusinessLogic
             List<User> DisabledUsers = new List<User>();
             foreach (var i in Users)
             {
-                if (i.Avalability == 0)
+                if (i.Availability == 0)
                 {
                     DisabledUsers.Add(i);
                 }

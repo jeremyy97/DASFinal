@@ -11,10 +11,10 @@ namespace BusinessLogic
     {
         public UserLogic()
         {
-            Users = DataAccess.GetUsers();
+            Users = DBAccess.DBAccessConnection.GetUsers();
         }
         private static List<User> Users = new List<User>();
-        DBAccessConnection DataAccess = new DBAccessConnection();
+  
 
         public User createUser(string username, string password, string name, string lastName, string type)
         {
@@ -31,8 +31,9 @@ namespace BusinessLogic
                 }
                 else
                 {
-                    user = new User() { Username = username, Password = password, Name = name, LastName = lastName, Type = type, Avalability = 1 };
-                    
+                    user = new User() { Username = username, Password = password, Name = name, LastName = lastName, Type = type, Availability = 1 };
+                    DBAccess.DBAccessConnection.CreateUser(user);
+                    Users = DBAccess.DBAccessConnection.GetUsers();
                     return user;
                 }
             }
@@ -60,9 +61,9 @@ namespace BusinessLogic
                 if (SearchUserByUsername(username).Username == loggedUsername)
                 {
                     user = SearchUserByUsername(username);
-                    Users.Remove(user);
-                    user.Availability = 0;
-                    Users.Add(user);
+                    DBAccess.DBAccessConnection.UpdateAvailablity(user, 0);
+                    Users = DBAccess.DBAccessConnection.GetUsers();
+                    
                     return user;
                 }
             }
@@ -77,9 +78,9 @@ namespace BusinessLogic
                 if (SearchUserByUsername(username).Username == loggedUsername)
                 {
                     user = SearchUserByUsername(username);
-                    Users.Remove(user);
-                    user.Availability = 1;
-                    Users.Add(user);
+                    DBAccess.DBAccessConnection.UpdateAvailablity(user, 1);
+                    Users = DBAccess.DBAccessConnection.GetUsers();
+
                     return user;
                 }
             }
@@ -117,16 +118,16 @@ namespace BusinessLogic
             return DisabledUsers;
         }
 
-        public Boolean Login(string username, string password)
+        public User Login(string username, string password)
         {
             foreach (User user in Users)
             {
                 if (user.Username == username && user.Password == password)
                 {
-                    return true;
+                    return user;
                 }
             }
-            return false;
+            return null;
         }
     }
 }

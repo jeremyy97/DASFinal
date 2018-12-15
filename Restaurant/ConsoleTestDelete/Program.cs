@@ -12,14 +12,18 @@ namespace ConsoleTestDelete
     {
         static void Main(string[] args)
         {
-            DBAccessConnection test = new DBAccessConnection();
-
-            List<User> users = test.GetUsers();
-
+            
+            User user = new User() { Username = "Eddie", Password = "123", Name = "Eddie", LastName = "Carranza", Type = "Mesero", Availability = 1 };
+            DBAccessConnection.CreateUser(user);
+            List<User> users = DBAccessConnection.GetUsers();
+            //DBAccessConnection.DeleteUser(user);
+            DBAccessConnection.UpdateAvailablity(user,0);
             foreach (var item in users)
             {
                 Console.WriteLine(item);
             }
+            
+
             Console.ReadKey();
 
 

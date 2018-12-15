@@ -32,7 +32,7 @@ namespace BusinessLogic
                 else
                 {
                     user = new User() { Username = username, Password = password, Name = name, LastName = lastName, Type = type, Avalability = 1 };
-                    Users.Add(user);
+                    
                     return user;
                 }
             }

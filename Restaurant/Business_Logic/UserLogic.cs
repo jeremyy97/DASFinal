@@ -11,7 +11,7 @@ namespace BusinessLogic
     {
         public UserLogic()
         {
-            Users = DBAccess.DBAccessConnection.GetUsers();
+            Users = DBAccessConnection.GetUsers();
         }
         private static List<User> Users = new List<User>();
   
@@ -61,7 +61,7 @@ namespace BusinessLogic
                 if (SearchUserByUsername(username).Username == loggedUsername)
                 {
                     user = SearchUserByUsername(username);
-                    DBAccess.DBAccessConnection.UpdateAvailablity(user, 0);
+                    DBAccess.DBAccessConnection.UpdateUserAvailablity(user, 0);
                     Users = DBAccess.DBAccessConnection.GetUsers();
                     
                     return user;
@@ -78,7 +78,7 @@ namespace BusinessLogic
                 if (SearchUserByUsername(username).Username == loggedUsername)
                 {
                     user = SearchUserByUsername(username);
-                    DBAccess.DBAccessConnection.UpdateAvailablity(user, 1);
+                    DBAccess.DBAccessConnection.UpdateUserAvailablity(user, 1);
                     Users = DBAccess.DBAccessConnection.GetUsers();
 
                     return user;

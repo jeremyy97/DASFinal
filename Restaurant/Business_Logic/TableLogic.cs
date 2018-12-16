@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using DBAccess;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,11 +12,12 @@ namespace BusinessLogic
 
         public TableLogic()
         {
-            Tables.Add(new Table() { ID = 1, People = 4, Available = 1 });
+            /*Tables.Add(new Table() { ID = 1, People = 4, Available = 1 });
             Tables.Add(new Table() { ID = 2, People = 2, Available = 1 });
             Tables.Add(new Table() { ID = 3, People = 10, Available = 1 });
             Tables.Add(new Table() { ID = 4, People = 4, Available = 1 });
-            Tables.Add(new Table() { ID = 5, People = 3, Available = 1 });
+            Tables.Add(new Table() { ID = 5, People = 3, Available = 1 });*/
+            Tables = DBAccessConnection.GetTables();
         }
 
         public Table AddTable(int id, int people)
@@ -23,7 +25,8 @@ namespace BusinessLogic
             if (people > 0 && SearchById(id) == null)
             {
                 Table table = new Table { ID = id, People = people, Available = 1 };
-                Tables.Add(table);
+                DBAccessConnection.CreateTable(table);
+                Tables = DBAccessConnection.GetTables();       
                 return table;
             }
             else return null;
@@ -61,7 +64,25 @@ namespace BusinessLogic
                 {
                     if (table.Available==1)
                     {
-                        table.Available = 0;
+                        DBAccessConnection.UpdateTableAvailability(table, 0);
+                        Tables = DBAccessConnection.GetTables();
+                        return table;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public Table FreeTable(int id)
+        {
+            foreach (var table in Tables)
+            {
+                if (table.ID == id)
+                {
+                    if (table.Available == 0)
+                    {
+                        DBAccessConnection.UpdateTableAvailability(table, 1);
+                        Tables = DBAccessConnection.GetTables();
                         return table;
                     }
                 }

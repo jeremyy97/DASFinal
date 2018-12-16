@@ -16,7 +16,7 @@ namespace BusinessLogic
         private static List<User> Users = new List<User>();
   
 
-        public User createUser(string username, string password, string name, string lastName, string type)
+        public User CreateUser(string username, string password, string name, string lastName, string type)
         {
             User user;
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(type))

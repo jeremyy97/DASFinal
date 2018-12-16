@@ -7,6 +7,7 @@ namespace BusinessLogic
 {
     public class CashierLogic
     {
+        /*
         OrderLogic orderLo;
         BillLogic billLo;
 
@@ -43,7 +44,7 @@ namespace BusinessLogic
                 }
             }
         }
-
+        
         public void PayBill(int billId)
         {
             foreach (Bill bill in BillLogic.Bills)
@@ -56,6 +57,6 @@ namespace BusinessLogic
                     }
                 }
             }
-        }
+        }*/
     }
 }

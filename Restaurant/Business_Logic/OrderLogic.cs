@@ -22,7 +22,7 @@ namespace BusinessLogic
             OrderProduct = DBAccessConnection.GetOrders();
             foreach (var i in OrderProduct)
             {
-                Order order = new Order() { ID = i.ID, Table = i.Table, Cost = i.Cost, Paid = i.Paid, Completed = i.Completed, Product = SearchProductById(i.product) };
+                Order order = new Order() { ID = i.ID, Table = i.Table, Cost = i.Cost, Paid = i.Paid, Completed = i.Completed, Product = SearchProductById(i.Product) };
                 Orders.Add(order);
             }
         }
@@ -70,16 +70,26 @@ namespace BusinessLogic
             return null;
         }
 
-        public Order GetOrdersToPay(int table)
+        public List<Order> GetOrdersToPay(int table)
         {
+            List<Order> orders = new List<Order>();
             foreach (var order in Orders)
             {
                 if (order.Paid == 0 && order.Table == table)
                 {
-                    return order;
+                    orders.Add(order);
                 }
             }
-            return null;
+
+            if (orders.Count != 0)
+            {
+                return orders;
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
         public void PayOrder(Order order)

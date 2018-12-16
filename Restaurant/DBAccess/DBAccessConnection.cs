@@ -13,6 +13,7 @@ namespace DBAccess
     {
 
         static string connString = "Data Source=LAPTOP-BCKLRFPR\\MSSQLSERVER01;Initial Catalog=restaurantDB;Integrated Security=True;";
+
         public static List<User> GetUsers()
         {
             List<User> users;
@@ -173,6 +174,33 @@ namespace DBAccess
             }
         }
 
-        public void 
+        public static List<Bill> GetBills()
+        {
+            List<Bill> bills;
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                bills = conn.Query<Bill>("select * from [restaurantDB].[dbo].[BILL]").ToList();
+            }
+            return bills;
+        }
+
+        public static void CreateBill(Bill bill)
+        {
+            string sql = "insert into [restaurantDB].[dbo].[BILL] ([id], [name], [orders] , [tax] , [cost] , [finalcost]) VALUES (@id, @name, @orders,@tax,@cost,@finalcost)";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                var rows = conn.Execute(sql, new
+                {
+                    bill.ID,
+                    bill.Name,
+                    bill.Orders,
+                    bill.Tax,
+                    bill.Cost,
+                    bill.FinalCost
+                });
+            }
+        }
+
+
     }
 }

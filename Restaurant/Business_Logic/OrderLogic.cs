@@ -4,49 +4,46 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BusinessLogic;
+using DBAccess;
 
 namespace BusinessLogic
 {
     public class OrderLogic
     {
         public static List<Order> Orders = new List<Order>();
-
-        public int CreateOrder(int table)
+        public static List<Order_Product> OrderProduct = new List<Order_Product>();
+        public OrderLogic()
         {
-            Order order = new Order(table);
-            Orders.Add(order);
-            return order.ID;
+            LoadOrders();
         }
 
-        public string AddProductToAnOrder(int orderId, int productoId)
+        private void LoadOrders()
         {
-            foreach (var order in Orders)
+            OrderProduct = DBAccessConnection.GetOrders();
+            foreach (var i in OrderProduct)
             {
-                if (order.ID == orderId)
-                {
-                    ProductLogic products = new ProductLogic();
-                    Product product = products.SearchByID(productoId);
-                    order.Products.Add(product);
-                    return "Producto agregado a la orden " + orderId;
-                }
+                Order order = new Order() { ID = i.ID, Table = i.Table, Cost = i.Cost, Paid = i.Paid, Completed = i.Completed, Product = SearchProductById(i.product) };
+                Orders.Add(order);
             }
-            return "ID de orden incorrecta";
         }
-        public decimal OrderCost(List<Product> products)
+        private Product SearchProductById(int id)
         {
-            if (products.Count != 0)
+            List<Product> Products = DBAccessConnection.GetProducts();
+            foreach(var i in Products)
             {
-                decimal price = 0;
-                foreach (var product in products)
+                if(i.ID == id)
                 {
-                    price += product.Cost;
+                    return i;
                 }
-                return price;
             }
-            else
-            {
-                return 0;
-            }
+            return null;
+        }
+
+        public Order_Product CreateOrder(int table, int product, decimal cost)
+        {
+            Order_Product order = new Order_Product() { Table = table, Product = product, Cost = cost, Completed=0, Paid =0};
+            LoadOrders();
+            return order;
         }
 
         public Order SearchOrderById(int id)
@@ -61,58 +58,11 @@ namespace BusinessLogic
             return null;
         }
 
-        public string GetProductsString(List<Product> products)
-        {
-            if (products.Count != 0)
-            {
-                string print = "";
-                foreach (var product in products)
-                {
-                    print += product + "\n";
-                }
-                return print;
-            }
-            else
-            {
-                return "No hay productos en la orden";
-            }
-        }
-
-        public string GetOrderString(Order order)
-        {
-            return "Orden #" + order.ID + "\nProductos: \n" + GetProductsString(order.Products) + "\nMonto Orden: " + OrderCost(order.Products);
-        }
-
-        public string GetOrdersSameTableToPayString(int table)
-        {
-            StringBuilder final = new StringBuilder();
-            foreach (var order in Orders)
-            {
-                if (order.Table == table && !order.Paid && order.Completed)
-                {
-                    final.Append(GetOrderString(order));
-                    final.Append("\n");
-                }
-            }
-            return final.ToString();
-        }
-
-        public string GetAllOrdersString()
-        {
-            StringBuilder final = new StringBuilder();
-            foreach (var order in Orders)
-            {
-                final.Append(GetOrderString(order));
-                final.Append("\n ---------------------------------------------");
-            }
-            return final.ToString();
-        }
-
-        public Order GetOrder(int id)
+        public Order GetOrdersToPay()
         {
             foreach (var order in Orders)
             {
-                if (order.ID == id)
+                if (order.Paid == 0)
                 {
                     return order;
                 }
@@ -120,10 +70,16 @@ namespace BusinessLogic
             return null;
         }
 
-        public void CloseOrder(Order order)
+        public Order GetOrdersToPay(int table)
         {
-            order.Cost = OrderCost(order.Products);
-            order.Paid = false;
+            foreach (var order in Orders)
+            {
+                if (order.Paid == 0 && order.Table == table)
+                {
+                    return order;
+                }
+            }
+            return null;
         }
 
         public void PayOrder(Order order)
@@ -132,7 +88,7 @@ namespace BusinessLogic
             {
                 if (i == order)
                 {
-                    i.Paid = true;
+                    i.Paid = 1;
                 }
             }
         }

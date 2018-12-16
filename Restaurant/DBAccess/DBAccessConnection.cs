@@ -150,14 +150,29 @@ namespace DBAccess
             }
         }
 
-        public static List<Order> GetOrders()
+        public static List<Order_Product> GetOrders()
         {
-            List<Order> orders;
+            List<Order_Product> orders;
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                orders = conn.Query<Order>("select * from [restaurantDB].[dbo].[ORDER]").ToList();
+                orders = conn.Query<Order_Product>("select * from [restaurantDB].[dbo].[ORDER]").ToList();
             }
             return orders;
         }
+
+        public static void PayOrder(int orden)
+        {
+            string sql = "update [restaurantDB].[dbo].[ORDER] set paid = @paid where id = @id";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                var rows = conn.Execute(sql, new
+                {
+                    id = orden,
+                    paid = 1
+                });
+            }
+        }
+
+        public void 
     }
 }

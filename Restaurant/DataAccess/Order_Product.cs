@@ -4,19 +4,13 @@ using System.Text;
 
 namespace Entities
 {
-    public class Order
+    public class Order_Product
     {
         public int ID { set; get; }
         public int Table { set; get; }
-        public Product Product = new Product();
+        public int Product { set; get; }
         public decimal Cost { set; get; }
         public int Paid { get; set; }
         public int Completed { get; set; }
-
-        public Order()
-        {
-
-        }
-        
     }
 }

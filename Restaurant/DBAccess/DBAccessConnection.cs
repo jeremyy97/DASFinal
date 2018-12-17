@@ -202,7 +202,7 @@ namespace DBAccess
 
         public static void CreateBill(Bill bill)
         {
-            string sql = "insert into [restaurantDB].[dbo].[BILL] ([id], [name], [orders] , [tax] , [cost] , [finalcost]) VALUES (@id, @name, @orders,@tax,@cost,@finalcost)";
+            string sql = "insert into [restaurantDB].[dbo].[BILL] ([id], [name], [orders] , [tax] , [cost] , [final_cost]) VALUES (@id, @name, @orders,@tax,@cost,@final_cost)";
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 var rows = conn.Execute(sql, new
@@ -212,7 +212,7 @@ namespace DBAccess
                     bill.Orders,
                     bill.Tax,
                     bill.Cost,
-                    bill.FinalCost
+                    final_cost = bill.FinalCost
                 });
             }
         }

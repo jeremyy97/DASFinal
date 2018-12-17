@@ -146,7 +146,7 @@ namespace DBAccess
                 var rows = conn.Execute(sql, new
                 {
                     id = table.ID,
-                    availability = status
+                    available = status
                 });
             }
         }
@@ -156,9 +156,25 @@ namespace DBAccess
             List<Order_Product> orders;
             using (SqlConnection conn = new SqlConnection(connString))
             {
-                orders = conn.Query<Order_Product>("select * from [restaurantDB].[dbo].[ORDER]").ToList();
+                orders = conn.Query<Order_Product>("select id, table_id, product_id, cost, paid, completed from [restaurantDB].[dbo].[ORDER]").ToList();
             }
             return orders;
+        }
+
+        public static void CreateOrder(Order_Product order)
+        {
+            string sql = "insert into [restaurantDB].[dbo].[ORDER] ([table_id], [product_id], [cost], [paid], [completed]) VALUES (@table_id, @product_id, @cost, @paid, @completed)";
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                var rows = conn.Execute(sql, new
+                {
+                    table_id = order.Table_id,
+                    product_id = order.Product_id,
+                    cost = order.Cost,
+                    paid = order.Paid,
+                    completed = order.Completed
+                });
+            }
         }
 
         public static void PayOrder(int orden)

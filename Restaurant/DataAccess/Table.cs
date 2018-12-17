@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Entities
 {
+    /// <summary>
+    /// Entidad mesa, la cual es necesitada cada vez que deseamos realizar una orden.
+    /// </summary>
     public class Table
     {
         public int ID { get; set; }

@@ -1,9 +1,10 @@
 ﻿using System;
+using BusinessLogic;
 using Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RestaurantTests
-{/*
+{
     [TestClass]
     public class UserTests
     {
@@ -15,7 +16,7 @@ namespace RestaurantTests
             User lastUser;
 
             //Act
-            string mensaje = logic.createUser("user1", "123", "Usuario", "Uno", 1, "waiter");
+            User user = logic.CreateUser("user1", "123", "Usuario", "Uno", "waiter");
             lastUser = logic.SearchUserByUsername("user1");
 
             //Assert
@@ -31,15 +32,13 @@ namespace RestaurantTests
             User secondUser;
 
             //Act
-            logic.createUser("user1", "123", "Mesero", "Uno", 1, "waiter");
-            firstUser = logic.SearchUserById(1);
-
-            logic.createUser("user1", "456", "Mesero", "Dos", 2, "waiter");
-            secondUser = logic.SearchUserById(2);
+            
+            firstUser = logic.CreateUser("user1", "123", "Mesero", "Uno", "waiter");
+            secondUser = logic.CreateUser("user1", "456", "Mesero", "Dos", "waiter");
 
             //Assert
-            Assert.IsNotNull(firstUser);
+            Assert.IsNotNull(firstUser,"UNO");
             Assert.IsNull(secondUser);
         }
-    }*/
+    }
 }

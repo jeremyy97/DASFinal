@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Entities
 {
+    /// <summary>
+    /// Entidad producto, es utilizada cada vez que deseamos realizar una orden. 
+    /// </summary>
     public class Product
     {
         public int ID { set; get; }

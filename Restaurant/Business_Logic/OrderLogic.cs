@@ -19,10 +19,11 @@ namespace BusinessLogic
 
         private void LoadOrders()
         {
+            Orders.Clear();
             OrderProduct = DBAccessConnection.GetOrders();
             foreach (var i in OrderProduct)
             {
-                Order order = new Order() { ID = i.ID, Table = i.Table, Cost = i.Cost, Paid = i.Paid, Completed = i.Completed, Product = SearchProductById(i.Product) };
+                Order order = new Order() { ID = i.ID, Table = i.Table_id, Cost = i.Cost, Paid = i.Paid, Completed = i.Completed, Product = SearchProductById(i.Product_id) };
                 Orders.Add(order);
             }
         }
@@ -41,7 +42,8 @@ namespace BusinessLogic
 
         public Order_Product CreateOrder(int table, int product, decimal cost)
         {
-            Order_Product order = new Order_Product() { Table = table, Product = product, Cost = cost, Completed=0, Paid =0};
+            Order_Product order = new Order_Product() { Table_id = table, Product_id = product, Cost = cost, Completed=0, Paid =0};
+            DBAccessConnection.CreateOrder(order);
             LoadOrders();
             return order;
         }
@@ -58,20 +60,21 @@ namespace BusinessLogic
             return null;
         }
 
-        public Order GetOrdersToPay()
+        public List<Order> GetOrdersToPay()
         {
+            List<Order> orders = new List<Order>();
             foreach (var order in Orders)
             {
                 if (order.Paid == 0)
                 {
-                    return order;
+                    orders.Add(order);
                 }
             }
-            return null;
+            return orders;
         }
 
         public List<Order> GetOrdersToPay(int table)
-        {
+         {
             List<Order> orders = new List<Order>();
             foreach (var order in Orders)
             {
@@ -80,15 +83,7 @@ namespace BusinessLogic
                     orders.Add(order);
                 }
             }
-
-            if (orders.Count != 0)
-            {
-                return orders;
-            }
-            else
-            {
-                return null;
-            }
+            return orders;
 
         }
 
@@ -98,9 +93,10 @@ namespace BusinessLogic
             {
                 if (i == order)
                 {
-                    i.Paid = 1;
+                    DBAccessConnection.PayOrder(i.ID);
                 }
             }
+            LoadOrders();
         }
     }
 }

@@ -3,13 +3,14 @@ using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Entities;
+using BusinessLogic;
 
 namespace RestaurantTests
 {
     [TestClass]
     public class TableTests
     {
-        /*
+       
         [TestMethod]
         public void EachTableHasAUniqueID()
         {
@@ -28,13 +29,13 @@ namespace RestaurantTests
         public void OnlyAvailableTablesCanBeUsed()
         {
             TableLogic logic = new TableLogic();
-            logic.AddTable(1, 4);
-            logic.ChangeStatus(1);
+            logic.AddTable(2, 6);
+            Table firstPick = logic.PickTable(2);
+            Table secondPick = logic.PickTable(2);
 
-            List<Table> tables = logic.GetAvailableTables();
-
-            Assert.AreNotSame(tables.Count,1);
+            Assert.IsNotNull(firstPick,"UNO");
+            Assert.IsNull(secondPick);
         }
-        */
+        
     }
 }

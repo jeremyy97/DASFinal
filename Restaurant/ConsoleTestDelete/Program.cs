@@ -17,7 +17,7 @@ namespace ConsoleTestDelete
             DBAccessConnection.CreateUser(user);
             List<User> users = DBAccessConnection.GetUsers();
             //DBAccessConnection.DeleteUser(user);
-            DBAccessConnection.UpdateAvailablity(user,0);
+            DBAccessConnection.UpdateUserAvailablity(user,0);
             foreach (var item in users)
             {
                 Console.WriteLine(item);

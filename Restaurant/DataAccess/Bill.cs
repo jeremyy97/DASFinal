@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Entities
 {
+    /// <summary>
+    /// Entiad factura contempla todas las facturas que se desean pagar en una sola factura.
+    /// </summary>
     public class Bill
     {
         public int ID { set; get; }

@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Entities
 {
+    /// <summary>
+    /// Entidad orden, nos indica la mesa y el producto que se pidio. Se utiliza en la creacion de la factura Bill 
+    /// </summary>
     public class Order
     {
         public int ID { set; get; }

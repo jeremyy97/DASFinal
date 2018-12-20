@@ -45,30 +45,12 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="Default.aspx">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item  ">
-            <a class="nav-link" href="Cliente.aspx">
-              <i class="material-icons">account_circle</i>
-              <p>Cliente</p>
-            </a>
-          </li>
-          <li class="nav-item  ">
-            <a class="nav-link" href="Mesero.aspx">
-              <i class="material-icons">assignment_turned_in</i>
-              <p>Mesero</p>
-            </a>
-          </li>
-          <li class="nav-item  ">
-            <a class="nav-link" href="Cajero.aspx">
-              <i class="material-icons">assignment</i>
-              <p>Admin</p>
-            </a>
-          </li>
+          
+              <asp:ContentPlaceHolder ID="Menu" runat="server">
+
+              </asp:ContentPlaceHolder>
+       
+          
          
           <!-- your sidebar here -->
         </ul>

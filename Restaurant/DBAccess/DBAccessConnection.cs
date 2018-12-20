@@ -26,6 +26,7 @@ namespace DBAccess
 
         public static void CreateUser(User user)
         {
+            
             string sql = "insert into [restaurantDB].[dbo].[USER] ([username], [password], [name] , [lastname] , [type] , [availability]) VALUES (@username, @password, @name,@lastname,@type,@availability)";
             using (SqlConnection conn = new SqlConnection(connString))
             {

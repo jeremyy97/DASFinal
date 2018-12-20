@@ -8476,6 +8476,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{8c0cd4ba-dfbd-487a-abe5-5361d19ad25e}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Business_Logic\Business_Logic.csproj">
       <Project>{6257543D-EA5B-463B-87FD-72A7DAC1506E}</Project>
       <Name>Business_Logic</Name>

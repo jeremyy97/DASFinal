@@ -19,6 +19,10 @@ namespace BusinessLogic
         public int Table { get; set; } //MESA A LA CUAL SE ESTA FACTURANDO
         public StringBuilder BillOrders { get; set; } //COMO PUEDE TENER VARIAS ORDENES, MEJOR USAR UN STRING PARA LA BD
 
+        public BillLogic()
+        {
+
+        }
         public BillLogic(int Table) //CUANDO UN CAJERO VAYA A FACTURAR MANDE OBLIGATORIAMENTE LA MESA
         {
             Bills = DBAccessConnection.GetBills();

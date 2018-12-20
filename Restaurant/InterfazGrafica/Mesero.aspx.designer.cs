@@ -11,5 +11,23 @@ namespace InterfazGrafica {
     
     
     public partial class Mesero {
+        
+        /// <summary>
+        /// Control numero_mesa.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox numero_mesa;
+        
+        /// <summary>
+        /// Control anadir_orden.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button anadir_orden;
     }
 }

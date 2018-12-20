@@ -8,15 +8,15 @@ namespace BusinessLogic
 {
     public class TableLogic
     {
+        /// <summary>
+        /// Gestion de las mesas
+        /// Se crean nuevas mesas
+        /// Eliminar mesas previamente registradas
+        /// </summary>
         List<Table> Tables = new List<Table>();
 
         public TableLogic()
         {
-            /*Tables.Add(new Table() { ID = 1, People = 4, Available = 1 });
-            Tables.Add(new Table() { ID = 2, People = 2, Available = 1 });
-            Tables.Add(new Table() { ID = 3, People = 10, Available = 1 });
-            Tables.Add(new Table() { ID = 4, People = 4, Available = 1 });
-            Tables.Add(new Table() { ID = 5, People = 3, Available = 1 });*/
             Tables = DBAccessConnection.GetTables();
         }
 

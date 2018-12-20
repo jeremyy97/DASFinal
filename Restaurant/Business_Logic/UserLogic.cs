@@ -9,6 +9,12 @@ namespace BusinessLogic
 {
     public class UserLogic
     {
+        /// <summary>
+        /// Gestion de los usuario
+        /// Creacion de nuevos usuarios por parte de un usuario administrador
+        /// Busqueda de usuario por nombre de usuario
+        /// Deshabilitar usuario existentes
+        /// </summary>
         public UserLogic()
         {
             Users = DBAccessConnection.GetUsers();

@@ -122,7 +122,7 @@ font-family: "Roboto", sans-serif;
               <asp:TextBox ID="username" runat="server" type="text" placeholder="username"></asp:TextBox>
               <asp:TextBox ID="password" runat="server" type="password" placeholder="password"></asp:TextBox>
               <asp:Button ID="login" runat="server" Text="LOGIN" style="background-color: #4CAF50;" OnClick="login_Click"/>
-              <asp:Label ID="message" runat ="server" ForeColor="Red"></asp:Label>
+              <asp:Label ID="message" runat="server" ForeColor="Red"></asp:Label>
           </div>
         </div>
     </form>

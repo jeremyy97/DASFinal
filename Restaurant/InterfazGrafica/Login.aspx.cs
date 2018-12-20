@@ -13,6 +13,7 @@ namespace InterfazGrafica
     public partial class Login : System.Web.UI.Page
     {
         UserLogic user = new UserLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,11 +22,12 @@ namespace InterfazGrafica
         protected void login_Click(object sender, EventArgs e)
         {
             User loggedUser = user.Login(username.Text, password.Text);
-            if ( loggedUser != null)
+            if (loggedUser != null)
             {
                 switch (loggedUser.Type)
                 {
                     case "admin":
+                        Response.Redirect("Default.aspx");
                         break;
                     case "waiter":
                         Response.Redirect("Mesero.aspx");
@@ -43,6 +45,7 @@ namespace InterfazGrafica
                 message.Text = "Por favor ingrese su usuario y contraseña.";
             else
                 message.Text = "El usuario o la contraseña son incorrectos.";
+
 
         }
     }

@@ -8,6 +8,12 @@ using DBAccess;
 
 namespace BusinessLogic
 {
+    /// <summary>
+    /// Administra las acciones referentes a las ordenes de los productos
+    /// Creacion de una orden
+    /// Buscar ordenes por pagar segun la mesa
+    /// Buscar ordenes por pagar
+    /// </summary>
     public class OrderLogic
     {
         public static List<Order> Orders = new List<Order>();
